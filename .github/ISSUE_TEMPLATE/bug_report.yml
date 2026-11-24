@@ -1,0 +1,37 @@
+name: Bug report
+description: Navigation goes somewhere unexpected, something throws, or the docs are wrong.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: For navigation bugs, say which node was focused, which key you pressed, and where focus went vs. where it should have gone.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: A minimal repo or StackBlitz link is by far the fastest way to a fix. Layout matters, so please include the CSS.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: vue
+    attributes:
+      label: Vue version
+      placeholder: 3.5.x
+  - type: input
+    id: env
+    attributes:
+      label: Browser / device
+      description: e.g. Chrome 140 on macOS, Safari 19 on iOS
+    validations:
+      required: true

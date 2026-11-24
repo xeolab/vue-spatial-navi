@@ -1,0 +1,246 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d0f14;
+  --panel: #161a22;
+  --line: #262b36;
+  --text: #e8eaf0;
+  --muted: #8a91a3;
+  --accent: #ffb547;
+  font-family: -apple-system, 'PingFang SC', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+button {
+  font: inherit;
+  color: inherit;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+}
+
+.sidebar {
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 16px;
+  background: var(--panel);
+  border-inline-end: 1px solid var(--line);
+}
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.1;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+.menu-item {
+  text-align: start;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.menu-item.active {
+  color: var(--text);
+}
+.dir-toggle {
+  margin-top: auto;
+  font-size: 13px;
+}
+.menu-item[data-focused] {
+  background: var(--accent);
+  color: #111;
+}
+
+.content {
+  overflow-y: auto;
+  padding: 32px 40px 64px;
+  scroll-padding: 32px 0;
+}
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 40px;
+  letter-spacing: -0.03em;
+}
+.hero p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  max-width: 60ch;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+.btn.primary {
+  border-color: var(--accent);
+}
+.btn[data-focused] {
+  background: var(--accent);
+  color: #111;
+  transform: scale(1.06);
+}
+
+.row {
+  margin-bottom: 32px;
+}
+.row h2 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+.row h2 small {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 13px;
+  margin-inline-start: 8px;
+}
+.row[data-focus-within] h2 {
+  color: var(--accent);
+}
+/* Padding leaves room for the focus scale; scrollIntoView does the scrolling. */
+.track {
+  display: flex;
+  gap: 16px;
+  overflow-x: hidden;
+  padding: 14px 24px;
+  margin: -14px -24px;
+  scroll-padding: 0 24px;
+}
+
+.card {
+  flex: 0 0 200px;
+  height: 112px;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(135deg, hsl(var(--hue) 55% 32%), hsl(calc(var(--hue) + 40) 55% 18%));
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  cursor: pointer;
+}
+.card.focused {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 3px var(--accent),
+    0 12px 30px #0008;
+}
+.card.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.card small {
+  color: #fff9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+.tile {
+  height: 90px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  transition:
+    transform 0.15s,
+    background 0.15s;
+  cursor: pointer;
+}
+.tile.wide {
+  grid-column: span 2;
+}
+.tile[data-focused] {
+  background: var(--accent);
+  color: #111;
+  transform: scale(1.05);
+}
+
+.status {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 10px 40px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.status b {
+  color: var(--text);
+  font-family: ui-monospace, monospace;
+}
+.logs {
+  color: var(--accent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #000a;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(4px);
+}
+.dialog {
+  width: min(460px, 90vw);
+  padding: 28px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+.dialog h2 {
+  margin: 0 0 8px;
+}
+.dialog p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.dialog code {
+  color: var(--accent);
+}
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
