@@ -1,6 +1,6 @@
 {
   "name": "@xeolab/vue-spatial-navi",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Spatial (arrow-key) navigation for Vue 3",
   "license": "MIT",
   "author": "xeolab",
