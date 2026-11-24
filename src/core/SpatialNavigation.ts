@@ -1,3 +1,7 @@
+// The framework-agnostic engine. Owns the focus tree (register / unregister), the current focus path,
+// remembered focus per container, key handling, directional navigation and focus restore on unmount.
+// Uses geometry.ts for the math and talks to the DOM only through each node's `getElement`.
+
 import { isHorizontal, isInBeam, pickBest, pickFirst, union, wrapOrigin } from './geometry.js';
 import type {
   Action,

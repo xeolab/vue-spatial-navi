@@ -1,3 +1,6 @@
+// Vue plugin: creates one engine per app, provides it to components, listens for `keydown`,
+// and mirrors the focused id into a ref. `useSpatialNavigation()` reads it back inside components.
+
 import { inject, shallowRef, type App, type InjectionKey, type Ref } from 'vue';
 import { SpatialNavigation } from '../core/SpatialNavigation.js';
 import type { NodeId, SpatialNavigationOptions } from '../core/types.js';

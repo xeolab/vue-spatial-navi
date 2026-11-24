@@ -1,3 +1,7 @@
+// Composable that registers the calling component as a node in the engine's focus tree.
+// Parent / child links come from provide/inject, options are read lazily through getters (so they stay reactive),
+// and optional pointer support wires mouse hover / click to focus / enter.
+
 import {
   inject,
   onUnmounted,

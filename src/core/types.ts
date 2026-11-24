@@ -1,3 +1,6 @@
+// Shared types for the engine and the Vue layer: directions, rects, focus-tree nodes and engine options.
+// Type-only, no runtime code.
+
 export type Direction = 'up' | 'down' | 'left' | 'right';
 export type Action = Direction | 'enter' | 'back';
 export type NodeId = string;

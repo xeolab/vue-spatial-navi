@@ -1,3 +1,5 @@
+// `<Focusable>` component: a thin template wrapper around `useFocusable` for use without a script block.
+
 import { defineComponent, h, type PropType } from 'vue';
 import type { Boundary, Direction, Loop } from '../core/types.js';
 import { useFocusable } from './useFocusable.js';

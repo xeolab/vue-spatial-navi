@@ -1,3 +1,6 @@
+// Pure layout math, no state and no DOM access: direction / beam checks, scoring the best neighbour,
+// picking the "first" node, wrap-around origins for looping, and rect unions for element-less containers.
+
 import type { Direction, Rect } from './types.js';
 
 /** Sub-pixel slack so rounding and focus-scale transforms don't hide neighbours. */
